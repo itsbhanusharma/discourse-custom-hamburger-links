@@ -10,12 +10,14 @@ $.each(sec, function(value) {
     loc = "footerLinks";
   }
   var classname = sec[0].replace(/\s+/g, "-").toLowerCase();
-  api.decorateWidget("hamburger-menu:" + loc, () => {
+api.decorateWidget('menu-links:before', (helper)=>{
+    if (helper.attrs.name === 'footer-links') {
     return {
       href: sec[1],
       rawLabel: sec[0],
       className: "custom-hamburger-link " + classname
     };
+  }
   });
 });
 </script>
